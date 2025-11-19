@@ -1,6 +1,8 @@
 import { StyleSheet, View, ScrollView, Text } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useColorScheme } from "@/hooks/use-color-scheme";
+import { WalletConnect } from "@/components/wallet-connect";
+import { AppKit } from "@reown/appkit-react-native";
 
 export default function HomeScreen() {
   const colorScheme = useColorScheme();
@@ -8,15 +10,16 @@ export default function HomeScreen() {
   const insets = useSafeAreaInsets();
 
   return (
-    <View
-      style={[
-        styles.container,
-        {
-          paddingTop: insets.top,
-          backgroundColor: isDark ? "#1a1a1a" : "#f5f5f5",
-        },
-      ]}
-    >
+    <>
+      <View
+        style={[
+          styles.container,
+          {
+            paddingTop: insets.top,
+            backgroundColor: isDark ? "#1a1a1a" : "#f5f5f5",
+          },
+        ]}
+      >
       {/* Top scrollable section */}
       <ScrollView
         style={[
@@ -28,20 +31,9 @@ export default function HomeScreen() {
         <Text style={[styles.title, { color: isDark ? "#fff" : "#000" }]}>
           Top Section
         </Text>
-        {/* Example scrollable content */}
-        {Array.from({ length: 20 }).map((_, i) => (
-          <View
-            key={i}
-            style={[
-              styles.item,
-              { backgroundColor: isDark ? "#2a2a2a" : "#e0e0e0" },
-            ]}
-          >
-            <Text style={{ color: isDark ? "#fff" : "#000" }}>
-              Top Item {i + 1}
-            </Text>
-          </View>
-        ))}
+
+        {/* Wallet Connect Component */}
+        <WalletConnect />
       </ScrollView>
 
       {/* Divider */}
@@ -78,7 +70,9 @@ export default function HomeScreen() {
           </View>
         ))}
       </ScrollView>
-    </View>
+      </View>
+      <AppKit />
+    </>
   );
 }
 
