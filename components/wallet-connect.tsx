@@ -62,14 +62,12 @@ export function WalletConnect() {
               <Text style={[styles.chainInfo, { color: isDark ? "#fff" : "#000" }]}>
                 {chainId === 100 ? "Gnosis Chain" : chainId === 1 ? "Ethereum" : `Chain ${chainId}`}
               </Text>
-              {chainId !== 100 && (
-                <TouchableOpacity
-                  style={styles.switchButton}
-                  onPress={() => openModal({ view: "Networks" })}
-                >
-                  <Text style={styles.switchButtonText}>Switch Network</Text>
-                </TouchableOpacity>
-              )}
+              <TouchableOpacity
+                style={styles.switchButton}
+                onPress={() => openModal({ view: "Networks" })}
+              >
+                <Text style={styles.switchButtonText}>Switch Network</Text>
+              </TouchableOpacity>
             </View>
           </View>
 

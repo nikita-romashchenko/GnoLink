@@ -2,6 +2,7 @@ import { StyleSheet, View, ScrollView, Text } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useColorScheme } from "@/hooks/use-color-scheme";
 import { WalletConnect } from "@/components/wallet-connect";
+import { WalletGenerator } from "@/components/wallet-generator";
 import { AppKit } from "@reown/appkit-react-native";
 
 export default function HomeScreen() {
@@ -52,23 +53,7 @@ export default function HomeScreen() {
         ]}
         contentContainerStyle={styles.scrollContent}
       >
-        <Text style={[styles.title, { color: isDark ? "#fff" : "#000" }]}>
-          Bottom Section
-        </Text>
-        {/* Example scrollable content */}
-        {Array.from({ length: 20 }).map((_, i) => (
-          <View
-            key={i}
-            style={[
-              styles.item,
-              { backgroundColor: isDark ? "#2a2a2a" : "#e0e0e0" },
-            ]}
-          >
-            <Text style={{ color: isDark ? "#fff" : "#000" }}>
-              Bottom Item {i + 1}
-            </Text>
-          </View>
-        ))}
+        <WalletGenerator />
       </ScrollView>
       </View>
       <AppKit />
